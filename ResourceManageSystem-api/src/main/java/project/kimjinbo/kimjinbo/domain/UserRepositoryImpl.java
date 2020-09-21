@@ -28,8 +28,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Stream<User> findBorrow() {
+    public Stream<User> findBorrowHW() {
         return users.stream().filter(r -> !r.getHaveHW().isEmpty());
+    }
+
+    @Override
+    public Stream<User> findBorrowSW() {
+        return users.stream().filter(r -> !r.getHaveSW().isEmpty());
     }
 
 }

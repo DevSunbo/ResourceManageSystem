@@ -6,5 +6,6 @@ import java.util.stream.Stream;
 public interface UserRepository {
     List<User> findAll();
     User findByLogin(String id, String pw);
-    Stream<User> findBorrow();
+    Stream<User> findBorrowHW();
+    Stream<User> findBorrowSW();
 }
