@@ -6,6 +6,7 @@ import project.kimjinbo.kimjinbo.domain.User;
 import project.kimjinbo.kimjinbo.domain.UserRepositoryImpl;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @RestController
 public class UserController {
@@ -28,4 +29,11 @@ public class UserController {
     public User postUserInfo(@RequestBody User userRequest){
         return userRequest;
     }
+
+    @GetMapping("users/hw")
+    public Stream<User> borrowHwUser(){
+        Stream borrowHwUsers = userRepository.findBorrow();
+        return borrowHwUsers;
+    }
+
 }
