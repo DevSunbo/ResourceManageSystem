@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 @Component
 public class UserRepositoryImpl implements UserRepository {
@@ -13,7 +15,7 @@ public class UserRepositoryImpl implements UserRepository {
     public UserRepositoryImpl() {
         users.add(new User("sunbo", "1234", "심선보", 24, "CS", "PC"));
         users.add(new User("taehoon", "abcd", "김태훈", 24, "CS", "노트북"));
-        users.add(new User("jinyoung", "ㄱㄴㄷㄹ", "김진영", 24, "CS", "아이패드"));
+        users.add(new User("jinyoung", "ㄱㄴㄷㄹ", "김진영", 25, "CS", "아이패드"));
     }
     @Override
     public List<User> findAll() {
@@ -24,4 +26,10 @@ public class UserRepositoryImpl implements UserRepository {
     public User findByLogin(String id, String pw) {
         return users.stream().filter(r -> r.getId().equals(id)).filter(r -> r.getPw().equals(pw)).findFirst().orElse(null);
     }
+
+    @Override
+    public Stream<User> findBorrow() {
+        return users.stream().filter(r -> !r.getHaveHW().isEmpty());
+    }
+
 }
