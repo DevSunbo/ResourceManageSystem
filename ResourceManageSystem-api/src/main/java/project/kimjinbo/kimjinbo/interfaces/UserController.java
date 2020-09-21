@@ -1,9 +1,7 @@
 package project.kimjinbo.kimjinbo.interfaces;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.kimjinbo.kimjinbo.domain.User;
 import project.kimjinbo.kimjinbo.domain.UserRepositoryImpl;
 
@@ -24,5 +22,10 @@ public class UserController {
     public User userInfo(@PathVariable("id") String id, @PathVariable("pw") String pw){
         User user = userRepository.findByLogin(id, pw);
         return user;
+    }
+
+    @PostMapping("user/")
+    public User postUserInfo(@RequestBody User userRequest){
+        return userRequest;
     }
 }
