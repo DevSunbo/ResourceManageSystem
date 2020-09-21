@@ -19,7 +19,7 @@ public class UserController {
         return users;
     }
 
-    @GetMapping("/user/{id},{pw}")
+    @GetMapping("/user/id:{id}?pw:{pw}")
     public User userInfo(@PathVariable("id") String id, @PathVariable("pw") String pw){
         User user = userRepository.findByLogin(id, pw);
         return user;
