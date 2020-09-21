@@ -7,14 +7,17 @@ public class User {
     private final int age;
     private final String major;
     private String haveHW;
+    private String haveSW;
 
-    public User(String id, String pw, String name, int age, String major, String haveHW) {
+
+    public User(String id, String pw, String name, int age, String major, String haveHW, String haveSW) {
         this.id = id;
         this.pw = pw;
         this.name = name;
         this.age = age;
         this.major = major;
         this.haveHW = haveHW;
+        this.haveSW = haveSW;
     }
 
     public String getId() {
@@ -39,5 +42,9 @@ public class User {
 
     public String getHaveHW() {
         return haveHW;
+    }
+
+    public String getHaveSW() {
+        return haveSW;
     }
 }
