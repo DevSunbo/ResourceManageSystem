@@ -31,9 +31,22 @@ public class UserController {
     }
 
     @GetMapping("users/hw")
-    public Stream<User> borrowHwUser(){
-        Stream borrowHwUsers = userRepository.findBorrow();
+    public Stream<User> borrowHWUser(){
+        Stream borrowHwUsers = userRepository.findBorrowHW();
         return borrowHwUsers;
+    }
+
+    @GetMapping("users/sw")
+    public Stream<User> borrowSWUser(){
+        Stream borrowSwUsers = userRepository.findBorrowSW();
+        return borrowSwUsers;
+    }
+
+    @GetMapping("users/nowResource")
+    public Stream<User> borrowAll(){
+        Stream borrowHwUsers = userRepository.findBorrowHW();
+        Stream borrowSwUsers = userRepository.findBorrowSW();
+        return Stream.concat(borrowHwUsers, borrowSwUsers).distinct();
     }
 
 }
