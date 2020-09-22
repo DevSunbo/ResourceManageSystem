@@ -25,10 +25,10 @@ public class UserController {
         return user;
     }
 
-    @PostMapping("/user/")
-    public User postUserInfo(@RequestBody User userRequest){
+    @PostMapping("/user")
+    public void postUserInfo(@RequestBody User userRequest){
         userRepository.signUp(userRequest.getId(), userRequest.getPw());
-        return userRequest;
+        return;
     }
 
     @GetMapping("/users/hw")
