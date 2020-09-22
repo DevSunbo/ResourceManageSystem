@@ -49,5 +49,4 @@ public class UserController {
         Stream borrowSwUsers = userRepository.findBorrowSW();
         return Stream.concat(borrowHwUsers, borrowSwUsers).distinct();
     }
-
 }
