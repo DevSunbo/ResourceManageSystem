@@ -24,6 +24,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public void signUp(String id, String pw, String name, int age, String major, String haveHW, String haveSW) {
+        users.add(new User(id, pw, name, age, major, haveHW, haveHW));
+    }
+
+
+    @Override
     public User findByLogin(String id, String pw) {
         return users.stream().filter(r -> r.getId().equals(id)).filter(r -> r.getPw().equals(pw)).findFirst().orElse(null);
     }
