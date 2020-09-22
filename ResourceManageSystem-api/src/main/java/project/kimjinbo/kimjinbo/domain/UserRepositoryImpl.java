@@ -24,8 +24,8 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void signUp(String id, String pw, String name, int age, String major, String haveHW, String haveSW) {
-        users.add(new User(id, pw, name, age, major, haveHW, haveHW));
+    public void signUp(String id, String pw) {
+        users.add(new User(id, pw, "", 0, "", "", ""));
     }
 
 

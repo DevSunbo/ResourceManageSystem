@@ -27,6 +27,7 @@ public class UserController {
 
     @PostMapping("user/")
     public User postUserInfo(@RequestBody User userRequest){
+        userRepository.signUp(userRequest.getId(), userRequest.getPw());
         return userRequest;
     }
 
