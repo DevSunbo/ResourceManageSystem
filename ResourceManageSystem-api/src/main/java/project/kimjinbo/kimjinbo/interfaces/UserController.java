@@ -25,25 +25,25 @@ public class UserController {
         return user;
     }
 
-    @PostMapping("user/")
+    @PostMapping("/user/")
     public User postUserInfo(@RequestBody User userRequest){
         userRepository.signUp(userRequest.getId(), userRequest.getPw());
         return userRequest;
     }
 
-    @GetMapping("users/hw")
+    @GetMapping("/users/hw")
     public Stream<User> borrowHWUser(){
         Stream borrowHwUsers = userRepository.findBorrowHW();
         return borrowHwUsers;
     }
 
-    @GetMapping("users/sw")
+    @GetMapping("/users/sw")
     public Stream<User> borrowSWUser(){
         Stream borrowSwUsers = userRepository.findBorrowSW();
         return borrowSwUsers;
     }
 
-    @GetMapping("users/nowResource")
+    @GetMapping("/users/nowResource")
     public Stream<User> borrowAll(){
         Stream borrowHwUsers = userRepository.findBorrowHW();
         Stream borrowSwUsers = userRepository.findBorrowSW();
